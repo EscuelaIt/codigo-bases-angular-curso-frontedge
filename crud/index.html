@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>crud</title>
+  <link rel="stylesheet" href="../estilo-basico.css">
+</head>
+<body ng-app="appCrud" ng-controller="appCrudController as vm">
+
+  <h1>Películas</h1>
+    <p>
+        <label>Nombre:</label> <input type="text" ng-model="vm.nuevaPelicula.nombre">
+    </p>
+    <p>
+        <label>Director:</label> <input type="text" ng-model="vm.nuevaPelicula.director">
+    </p>
+    <p>
+       <label>Clasificación: </label>
+        <select ng-model="vm.nuevaPelicula.clasificacion">
+            <option ng-repeat="clasif in vm.clasificaciones track by $index" value="{{clasif.nombre}}">{{clasif.nombre}}</option>
+        </select>
+    </p>
+    <p>
+        <a class="accion" ng-click="vm.insertaPelicula()">Agregar película</a>
+    </p>
+
+
+    <div ng-show="vm.editando">
+       <h2>Editar una peli</h2>
+      <p>
+          <label>Nombre:</label> <input type="text" ng-model="vm.PeliculaEditar.nombre">
+      </p>
+      <p>
+          <label>Director:</label> <input type="text" ng-model="vm.PeliculaEditar.director">
+      </p>
+      <p>
+         <label>Clasificación: </label>
+          <select ng-model="vm.PeliculaEditar.clasificacion">
+              <option ng-repeat="clasif in vm.clasificaciones track by $index" value="{{clasif.nombre}}">{{clasif.nombre}}</option>
+          </select>
+      </p>
+      <p>
+          <a class="accion" ng-click="vm.guardarPelicula()">Guardar</a>
+      </p>
+    </div>
+
+
+  <h2>Listado películas</h2>
+    <p ng-show="vm.error">{{vm.error}}</p>
+    <table ng-show="vm.peliculas.length != 0">
+        <tr>
+            <th>Nombre</th>
+            <th>Director</th>
+            <th>Clasificación</th>
+        </tr>
+        <tr ng-repeat="pelicula in vm.peliculas track by $index">
+            <td>{{pelicula.nombre}}</td>
+            <td>{{pelicula.director}}</td>
+            <td>{{pelicula.clasificacion}}</td>
+            <td>
+                <a class="accion accioneditar" ng-click="vm.editarPelicula($index)">E</a>
+                <a class="accion accionborrar" ng-click="vm.borrarPelicula(pelicula.id)">X</a>
+            </td>
+        </tr>
+    </table>
+
+  <script src="../angular.min.js"></script>
+  <script src="appCrud.js"></script>
+</body>
+</html>

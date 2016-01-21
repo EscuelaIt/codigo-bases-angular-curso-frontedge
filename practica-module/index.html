@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>practicando con modulos</title>
+  <link rel="stylesheet" href="../estilo-basico.css">
+</head>
+<body ng-app="peliculas" ng-controller="MiAppController as vm">
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit eligendi rem sit sunt consectetur repellendus architecto, ratione sed perspiciatis hic, officiis officia libero ipsum doloribus cumque accusantium qui omnis. Nobis!</p>
+  <p>Cum sint suscipit dolor, facere eaque non. Illum iste aliquam architecto saepe dignissimos laboriosam quo, enim ea molestiae porro, culpa iusto aspernatur quibusdam eos perspiciatis qui voluptate repudiandae ipsam. Delectus.</p>
+  <p>Quisquam eum quaerat quis in nemo maiores nam perspiciatis, quam deleniti a, optio ut magnam soluta. Doloremque voluptatum alias, exercitationem tempora aperiam neque aspernatur, maxime minus, omnis ipsum et officia.</p>
+
+  {{vm.algo}}
+
+  <h1>Mis películas</h1>
+  Nueva peli: <input type="text" ng-model="vm.nuevaPeli">
+  <br><br>
+  <a class="accion" ng-click="vm.agregaPeli()">Agregar Película</a>
+  <ul>
+    <li ng-repeat="peli in vm.peliculas track by $index">
+      {{peli}}
+    </li>
+  </ul>
+
+  <script src="../angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

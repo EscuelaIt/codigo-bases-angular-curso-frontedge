@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vistas</title>
+  <link rel="stylesheet" href="../estilo-basico.css">
+</head>
+<body ng-app="miApp">
+  <h1>Mi app con vistas</h1>
+  <nav ng-controller="NavController as vm">
+    <a href="#/">Home</a> |
+    <a href="#/otra">{{vm.enlace}}</a>
+  </nav>
+
+
+  <div ng-view></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-route.js"></script>
+  <script src="miapp.js"></script>
+</body>
+</html>

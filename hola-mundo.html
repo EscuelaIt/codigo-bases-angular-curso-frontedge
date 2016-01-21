@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hola Mundo en AngularJS</title>
+  <link rel="stylesheet" href="estilo-basico.css">
+</head>
+<body ng-app>
+  <h1>Hola {{quien}}</h1>
+  <input type="text" ng-model="quien">
+
+  <a class="accion" ng-click="quien = 'Sara'">Saluda a Sara</a>
+
+  <script src="angular.min.js"></script>
+</body>
+</html>
